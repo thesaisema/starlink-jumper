@@ -1,2 +1,9 @@
 using System;
-using System.Collections.Generic;
+
+namespace jumper.Game
+{
+    public class TerminalService
+    {  
+        
+    }
+}
