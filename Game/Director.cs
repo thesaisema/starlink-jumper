@@ -8,7 +8,10 @@ namespace jumper.Game
         
         public void StartGame()
         {
-
+            //Ebenezer
+            //GetInputs
+            //DoUpdates
+            //DoOutputs
             
         }
 
