@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 
 namespace jumper.Game
 {
@@ -10,6 +11,7 @@ namespace jumper.Game
 
         // Get the lenth of the random word
         static int LenOfRandomWord = RandomWord.Length;
+        Jumper jump = new Jumper();
 
         // This method creates and displays dashes
         public List<string> DisplayDash()
@@ -26,16 +28,19 @@ namespace jumper.Game
         public void UpdateAndDisplayDash()
         {
             // Daniel will create the parachute
-            int parachute = 6;
+            int LenOfParachute = jump.LenOfParachut - 3;
             // This line keeps count of the number of letters that a user has guessed correctly
             int letter_count = LenOfRandomWord;
 
             List<string> CurrentDash = DisplayDash();
-            while (parachute > 0 && letter_count > 0)
+            while (LenOfParachute > 0 && letter_count > 0)
             {
                 // This line displays the number of letters the user has gotten correctly
                 System.Console.WriteLine();
                 foreach(var i in CurrentDash) System.Console.Write(i +" ");
+                System.Console.WriteLine();
+
+                jump.DisplayParachute();
 
                 // Ask User for a letter
                 System.Console.Write("\n\nGuess a letter [a-z]: ");
@@ -47,7 +52,8 @@ namespace jumper.Game
                 int char_index = RandomWord.IndexOf(UserGuess);
                 if (char_index == -1) 
                 {
-                    parachute--;
+                    jump.CutParachute();
+                    LenOfParachute--;
                 }
                 else
                 {
