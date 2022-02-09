@@ -32,7 +32,7 @@ namespace jumper.Game
         Jumper jump = new Jumper();
 
         // This method creates and displays dashes
-        public List<string> DisplayDash()
+        public List<string> CreateDash()
         {
             List<string> Dashes = new List<string>();
             for (int i=0; i<LenOfRandomWord; i++)
@@ -43,14 +43,14 @@ namespace jumper.Game
         }
 
         // This method updates and displays dashes or cuts parachute
-        public void UpdateAndDisplayDash()
+        public void DisplayDash()
         {
             // Daniel will create the parachute
             int LenOfParachute = jump.LenOfParachut - 3;
             // This line keeps count of the number of letters that a user has guessed correctly
             int letter_count = LenOfRandomWord;
 
-            List<string> CurrentDash = DisplayDash();
+            List<string> CurrentDash = CreateDash();
             while (LenOfParachute > 0 && letter_count > 0)
             {
                 // This line displays the number of letters the user has gotten correctly
@@ -60,9 +60,7 @@ namespace jumper.Game
 
                 jump.DisplayParachute();
 
-                // Ask User for a letter
-                System.Console.Write("\n\nGuess a letter [a-z]: ");
-                string UserGuess = Console.ReadLine();
+                
 
                 // This checks if the letter is in the randomword or not.
                 // If the letter is in the randomword, currenDash gets updated 

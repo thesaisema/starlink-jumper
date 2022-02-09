@@ -27,21 +27,6 @@ namespace jumper.Game
             parachute.Enqueue("    /|\\");
             parachute.Enqueue("    / \\");
             parachute.Enqueue("\n^^^^^^^^^^^");
-            // string member1 = "_____";
-            // parachute.Enqueue(member1);
-            // string member2 = "/_____\\";
-            // parachute.Enqueue(member2);
-            // string member3 = "\\     /";
-            // parachute.Enqueue(member3);
-            // string member4 = "\\   /";
-            // parachute.Enqueue(member4);
-            // string member5 = " O ";
-            // parachute.Enqueue(member5);
-            // string member6 = "/|\\";
-            // parachute.Enqueue(member6);
-            // string member7 = "/ \\";
-            // parachute.Enqueue(member7);
-            
             return parachute;
         }
         public static Queue<string> Parachute = MakeParachute();
