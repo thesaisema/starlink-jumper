@@ -6,32 +6,36 @@ namespace jumper.Game
 {
     public class Word
     {  
-        //Andra - GenerateWord - choose random word form list
-        //Nwokolo - DisplayBlanks - displays the blank lines
-        //Andra - UserGuess - returns the letter guessed by the user
-        //Nwokolo - UpdateWord - updates the word after user guess. (could be done in DisplayWord)
-        public string GenerateWord(){
+        // Creating a jumper object
+        Jumper jump = new Jumper();
+        // This method generates random word from a list of words
+        public static string GenerateWord(){
             string[] wordList = {"flying", "jump", "death", "adventure", "crazy", "penguins", "manley"};
             Random rnd = new Random();
-            int random = rnd.Next(0, (wordList.Length + 1));//code for generating a random word from the list
+            int random = rnd.Next(0, (wordList.Length - 1));//code for generating a random word from the list
             string randWord = wordList[random];
             return randWord;
         }
 
+        // This method prompts the user for a letter
         public string UserGuess(){
             string guess;
             Console.Write("Guess a letter [a-z]: ");
             guess = Console.ReadLine();
             return guess;
         }
-        // Andra can come up with the method that creates random words here
+
+        // Get a random word and the lenth of the random word
         static string RandomWord = GenerateWord();
+        int LenOfRandomWord = RandomWord.Length;
+        public static List<string> StringToList()
+        {
+            List<string> stringToList = new List<string>();
+            foreach(var i in RandomWord) stringToList.Add(i.ToString());
+            return stringToList;
+        }
 
-        // Get the lenth of the random word
-        static int LenOfRandomWord = RandomWord.Length;
-        Jumper jump = new Jumper();
-
-        // This method creates and displays dashes
+        // This method creates dashes based on the length of the random word
         public List<string> CreateDash()
         {
             List<string> Dashes = new List<string>();
@@ -42,14 +46,14 @@ namespace jumper.Game
             return Dashes;
         }
 
-        // This method updates and displays dashes or cuts parachute
+        // This method updates and displays dashes or cut parachute
         public void DisplayDash()
         {
-            // Daniel will create the parachute
+            // These lines of code controls the condition for ending the game
             int LenOfParachute = jump.LenOfParachut - 3;
-            // This line keeps count of the number of letters that a user has guessed correctly
             int letter_count = LenOfRandomWord;
 
+            // Generating the dash lines will will be displaying to the user
             List<string> CurrentDash = CreateDash();
             while (LenOfParachute > 0 && letter_count > 0)
             {
@@ -60,12 +64,13 @@ namespace jumper.Game
 
                 jump.DisplayParachute();
 
-                
+                string userGuess = UserGuess();
 
                 // This checks if the letter is in the randomword or not.
                 // If the letter is in the randomword, currenDash gets updated 
                 // and letter_count gets reduced by 1, else parachute gets cut
-                int char_index = RandomWord.IndexOf(UserGuess);
+                List<string> stringToList = StringToList();
+                int char_index = stringToList.IndexOf(userGuess);
                 if (char_index == -1) 
                 {
                     jump.CutParachute();
@@ -73,15 +78,12 @@ namespace jumper.Game
                 }
                 else
                 {
-                    CurrentDash[char_index] = UserGuess;
+                    CurrentDash[char_index] = userGuess;
+                    stringToList.Remove(userGuess);
                     letter_count--;
                 }
             }
-            System.Console.WriteLine("Game Over.");
+            System.Console.WriteLine("Thanks for playing.");
         }
-        //Nwokolo - DisplayBlanks - displays the blank lines
-        //Nwokolo - UpdateWord - updates the word after user guess. (could be done in DisplayWord)
-        //Andra - GenerateWord - choose random word form list
-        //Andra - UserGuess - returns the letter guessed by the user
     }
 }

@@ -5,6 +5,8 @@ namespace jumper.Game
 {
     public class Jumper
     {  
+        //Daniel - MakeChute
+        //Daniel - CutChute
         /**
           _____
          /_____\
@@ -42,7 +44,9 @@ namespace jumper.Game
             Parachute.Dequeue();
 
         }
-        // public static void MakeEndGameDisplay()
+
+        // This code when implemented will control the final display when the game is over.
+        // public static Queue<string> EndGameParachute()
         // {
         //     Queue<string> parachute = new Queue<string>();
         //     parachute.Enqueue("     X ");
@@ -51,17 +55,13 @@ namespace jumper.Game
         //     parachute.Enqueue("\n^^^^^^^^^^^");
         //     return parachute;
         // }
-        // public static Queue<string> EndGameParachute = EndGameDisplay();
-        // public static void DisplayEndGameParachute()
+        // public static Queue<string> EndOfGameParachute = EndGameParachute();
+
+        // public void DisplayEndOfGameParachute()
         // {
-        //     foreach(var i in EndGameParachute) System.Console.WriteLine(i);
+        //     foreach(var i in EndOfGameParachute) System.Console.WriteLine(i);
+        //     System.Console.WriteLine("It's Game Over");
         // }
-
-        //Daniel - MakeChute
-        //Daniel - CutChute
-
-
-
 
     }
 }
