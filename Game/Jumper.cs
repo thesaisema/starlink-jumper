@@ -18,7 +18,7 @@ namespace jumper.Game
        ^^^^^^^^^^^
        
         **/
-        public static Queue<string> MakeParachute()
+        private static Queue<string> MakeParachute()
         {
             Queue<string> parachute = new Queue<string>();
             parachute.Enqueue("   _____");

@@ -9,7 +9,7 @@ namespace jumper.Game
         // Creating a jumper object
         Jumper jump = new Jumper();
         // This method generates random word from a list of words
-        public static string GenerateWord(){
+        private static string GenerateWord(){
             string[] wordList = {"flying", "jump", "death", "adventure", "crazy", "penguins", "manley"};
             Random rnd = new Random();
             int random = rnd.Next(0, (wordList.Length - 1));//code for generating a random word from the list
@@ -18,7 +18,7 @@ namespace jumper.Game
         }
 
         // This method prompts the user for a letter
-        public string UserGuess(){
+        private string UserGuess(){
             string guess;
             Console.Write("Guess a letter [a-z]: ");
             guess = Console.ReadLine();
@@ -26,9 +26,9 @@ namespace jumper.Game
         }
 
         // Get a random word and the lenth of the random word
-        static string RandomWord = GenerateWord();
+        private static string RandomWord = GenerateWord();
         int LenOfRandomWord = RandomWord.Length;
-        public static List<string> StringToList()
+        private static List<string> StringToList()
         {
             List<string> stringToList = new List<string>();
             foreach(var i in RandomWord) stringToList.Add(i.ToString());
@@ -36,7 +36,7 @@ namespace jumper.Game
         }
 
         // This method creates dashes based on the length of the random word
-        public List<string> CreateDash()
+        private List<string> CreateDash()
         {
             List<string> Dashes = new List<string>();
             for (int i=0; i<LenOfRandomWord; i++)
